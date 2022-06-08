@@ -50,9 +50,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     void encoder_action_navpage(bool clockwise) {
         if (clockwise)
-            tap_code16(KC_PGUP);
-        else
             tap_code16(KC_PGDN);
+        else
+            tap_code16(KC_PGUP);
     }
 
     // LAYER HANDLING
@@ -181,10 +181,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     bool encoder_update_user(uint8_t index, bool clockwise) {
         if (!encoder_update_keymap(index, clockwise)) { return false; }
+
         if (index != ENCODER_DEFAULTACTIONS_INDEX) {return true;}  // exit if the index doesn't match
+
         uint8_t mods_state = get_mods();
+
         if (mods_state & MOD_BIT(KC_LSFT) ) { // If you are holding L shift, encoder changes layers
             encoder_action_layerchange(clockwise);
+
         } else if (mods_state & MOD_BIT(KC_RSFT) ) { // If you are holding R shift, Page up/dn
             unregister_mods(MOD_BIT(KC_RSFT));
             encoder_action_navpage(clockwise);
@@ -195,7 +199,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             encoder_action_mediatrack(clockwise);
         } else  {
             switch(get_highest_layer(layer_state)) {
-            case _FN1:
+            case _L1:
                 #ifdef IDLE_TIMEOUT_ENABLE
                     timeout_update_threshold(clockwise);
                 #endif
@@ -212,6 +216,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 break;
             }
         }
+
         return false;
     }
 #endif // ENCODER_ENABLE

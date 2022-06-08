@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,          _______,
         _______, KC_MPLY, KC_MPRV, KC_MNXT, KC_MSTP, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,           _______,
         _______, KC_MRWD, KC_MFFD, _______, _______, _______, _______, KC_HOME, KC_PGUP, _______, _______, _______, _______, _______,          _______,
-        KC_CAPS, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,  KC_BSPC,          _______,          _______,
+        _______, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,  KC_BSPC,          _______,          _______,
         _______,          _______, _______, _______, _______, _______, _______, KC_END,  KC_PGDN, _______, _______,          _______, _______, _______,
-        _______, KC_WINLCK, _______,                            _______,                            _______, _______, _______, _______, _______, _______
+        _______, KC_CAPS, _______,                            _______,                            _______, _______, _______, _______, _______, _______
     ),
 
     [_L2] = LAYOUT(
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 break;
             }
         }
-        return true;
+        return false;
     }
 #endif // ENCODER_ENABLE && !ENCODER_DEFAULTACTIONS_ENABLE
 
