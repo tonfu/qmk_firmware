@@ -12,10 +12,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_L1] = LAYOUT_65_ansi_blocker(
-        _______,        KC_MPLY,    KC_MPRV,    KC_MNXT,    KC_MSTP,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    KC_DEL,     _______,
+        KC_ESC,         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     KC_DEL,     KC_PSCR,
         _______,        KC_MRWD,    KC_MFFD,    _______,    _______,    _______,    _______,    KC_HOME,    KC_PGUP,    _______,    _______,    _______,    _______,    _______,    _______,
         _______,        KC_VOLD,    KC_VOLU,    KC_MUTE,    _______,    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_DEL,     KC_BSPC,                _______,    _______,
-        _______,        _______,    _______,    _______,    _______,    _______,    _______,    KC_END,     KC_PGDN,    _______,    _______,    _______,                _______,    _______,
+        _______,        KC_MPLY,    KC_MPLY,    KC_MNXT,    KC_MSTP,    _______,    _______,    KC_END,     KC_PGDN,    _______,    _______,    _______,                _______,    _______,
         _______,        KC_CAPS,    _______,                            _______,                                                    _______,    _______,    _______,    _______,    _______
     ),
 
@@ -56,10 +56,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         if (!IS_HOST_LED_ON(USB_LED_SCROLL_LOCK)) {
             rgb_matrix_set_color(LED_DEL, RGB_YELLOW);
-        }
-
-        if (keymap_config.no_gui) {
-            rgb_matrix_set_color(LED_LWIN, RGB_RED);  //light up Win key when disabled
         }
 
         switch(get_highest_layer(layer_state)) {  // special handling per layer
